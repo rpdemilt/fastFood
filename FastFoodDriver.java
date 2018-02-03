@@ -45,5 +45,18 @@ public class FastFoodDriver {
 			return false;
 		}
 	}
+    public static boolean matchInput(ArrayList<String> s) {
+        Scanner kb = new Scanner(System.in);
+        System.out.println(Arrays.toString(s.toArray()));
+        do{
+        System.out.println("Is this order correct? (Y/N)");
+        String input = kb.nextLine();
+        }while (!input.equals("Y") && !input.equals("N"))
+        if (input.equals("Y")){
+        	return true;
+        } else {
+        	return false;
+        }
+    }
 
 }
