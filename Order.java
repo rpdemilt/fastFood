@@ -7,7 +7,7 @@ public class Order {
 	}
 	public Order(ArrayList<String> l) {
 		String[] input = new String[l.size()];
-		int i = 0
+		int i = 0;
 		for(String s : l) {
 			s = input[i];
 			i++;

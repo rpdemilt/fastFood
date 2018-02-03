@@ -12,6 +12,9 @@ public class FastFoodDriver {
 		System.out.println("Welcome to Penguinz.");
 		order = takeOrder(keyboard);
 		
+		inventory.decreaseInventory(order);
+		System.out.println("Thank you, your price will be " + order.price());
+		
 		keyboard.close();
 	}
 	public static Order takeOrder(Scanner keyboard) {
@@ -20,7 +23,7 @@ public class FastFoodDriver {
 		String input = "";
 		while(!input.toUpperCase().equals("DONE"))
 		System.out.println("What would you like to order? <Valid Entries: BREAKFAST, LUNCH, DINNER, DRINK, SIDE, DONE to quit>");
-		input = user.next();
+		input = keyboard.next();
 		input.toUpperCase();
 		if(validateInput(input)) {
 			order.add(input);
@@ -30,13 +33,13 @@ public class FastFoodDriver {
 	public static boolean validateInput(String s) {
 		if(s.equals("BREAKFAST")) {
 			return true;
-		} else if(s.equals("DINNER") {
+		} else if(s.equals("DINNER")){
 			return true;
-		} else if(s.equals("LUNCH"){
+		} else if(s.equals("LUNCH")){
 			return true;
-		} else if(s.equals("SIDE"){
+		} else if(s.equals("SIDE")){
 			return true;
-		} else if(s.equals("DRINK"){
+		} else if(s.equals("DRINK")){
 			return true;
 		} else {
 			return false;
