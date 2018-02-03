@@ -11,10 +11,16 @@ public class FastFoodDriver {
 		
 		System.out.println("Welcome to Penguinz.");
 		order = takeOrder(keyboard);
-		
-		inventory.decreaseInventory(order);
-		System.out.println("Thank you, your price will be " + order.price());
-		
+
+		if(matchInput(order.getOrder())) {
+			inventory.decreaseInventory(order);
+			System.out.println("Thank you, your price will be " + order.price());
+		} else {
+			Order retry = takeOrder(keyboard);
+			inventory.decreaseInventory(retry);
+			System.out.println("Thank you, your price will be " + retry.price());
+		}
+
 		keyboard.close();
 	}
 	public static Order takeOrder(Scanner keyboard) {
@@ -45,9 +51,9 @@ public class FastFoodDriver {
 			return false;
 		}
 	}
-    public static boolean matchInput(ArrayList<String> s) {
+    public static boolean matchInput(String[] s) {
         Scanner kb = new Scanner(System.in);
-        System.out.println(Arrays.toString(s.toArray()));
+        System.out.println(s);
         do{
         System.out.println("Is this order correct? (Y/N)");
         String input = kb.nextLine();
@@ -57,6 +63,6 @@ public class FastFoodDriver {
         } else {
         	return false;
         }
+        kb.close();
     }
-
 }
